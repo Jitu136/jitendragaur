@@ -141,3 +141,8 @@ int main() {
 
     return 0;
 }
+Enter your choice: 1
+Enter your choice: 2
+Enter your choice: 3
+Enter your choice: 4
+Enter your choice: 5
