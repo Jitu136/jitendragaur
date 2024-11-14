@@ -66,3 +66,18 @@ int main() {
 
     return 0;
 }
+
+Input :- 
+Matrix A :- 1 1 1 1 
+            2 2 2 2
+            3 3 3 3 
+            4 4 4 4 
+Matrix A :- 4 4 4 4 
+            3 3 3 3
+            2 2 2 2
+            1 1 1 1 
+Resultanat Matrix C :- 10 10 10 10 
+20 20 20 20 
+30 30 30 30 
+40 40 40 40         
+        
