@@ -41,3 +41,8 @@ int main() {
 
     return 0;
 }
+
+INPUT :
+Number of disk requests: 8
+Disk requests (space-separated): 98 183 37 122 14 124 65 67
+Starting position of the disk head: 53
