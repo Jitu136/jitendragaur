@@ -88,3 +88,12 @@ int main() {
 
     return 0;
 }
+
+
+INPUT :
+
+Parent process with PID <parent_pid>
+Parent exiting...
+Child process with PID <child_pid>, Parent PID: <parent_pid>
+Child process with PID <child_pid> now has parent PID 1 (init process)
+
