@@ -59,3 +59,12 @@ int main() {
     
     return 0;
 }
+
+INPUT :
+
+Enter the number of instructions: 4
+Enter the instructions (one per line):
+LOAD
+ADD
+XYZ
+STORE
