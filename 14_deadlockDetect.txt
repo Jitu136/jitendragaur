@@ -96,3 +96,37 @@ int main() {
     
     return 0;
 }
+
+Input:-
+Enter the number of processes: 3
+Enter the number of resources: 3
+
+Enter allocation for process 1 and resource 1: 1
+Enter request for process 1 and resource 1: 1
+Enter allocation for process 1 and resource 2: 0
+Enter request for process 1 and resource 2: 2
+Enter allocation for process 1 and resource 3: 1
+Enter request for process 1 and resource 3: 1
+
+Enter allocation for process 2 and resource 1: 0
+Enter request for process 2 and resource 1: 2
+Enter allocation for process 2 and resource 2: 1
+Enter request for process 2 and resource 2: 0
+Enter allocation for process 2 and resource 3: 1
+Enter request for process 2 and resource 3: 0
+
+Enter allocation for process 3 and resource 1: 1
+Enter request for process 3 and resource 1: 1
+Enter allocation for process 3 and resource 2: 1
+Enter request for process 3 and resource 2: 0
+Enter allocation for process 3 and resource 3: 0
+Enter request for process 3 and resource 3: 2
+
+Enter the number of available resources for resource 1: 1
+Enter the number of available resources for resource 2: 1
+Enter the number of available resources for resource 3: 1
+
+Output:-
+Checking for deadlock...
+Deadlock Detected!
+
