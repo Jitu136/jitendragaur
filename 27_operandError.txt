@@ -74,3 +74,11 @@ int main() {
     
     return 0;
 }
+
+INPUT :
+
+Enter the number of instructions: 3
+Enter the instructions and operands (e.g., LOAD 25):
+LOAD 25
+ADD 50
+STORE 150
