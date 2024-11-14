@@ -253,5 +253,5 @@ KAYAK
 The string is a palindrome.
 sid@SID:~/shell_scripts$ ./palindrome.sh
 Enter a string:
-SIDDHANT
+OSLAB
 The string is not a palindrome.
