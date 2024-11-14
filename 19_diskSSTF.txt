@@ -68,3 +68,10 @@ int main() {
 
     return 0;
 }
+
+INPUT :
+
+Number of disk requests: 8
+Disk requests: 95 180 34 119 11 123 62 64
+Starting position of the disk head: 50
+
