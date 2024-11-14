@@ -155,3 +155,24 @@ int main() {
 
     return 0;
 }
+Input for NON Preemiptive SJF:-
+Enter the number of processes: 3
+Enter Arrival Time and Burst Time for Process 1: 0 6
+Enter Arrival Time and Burst Time for Process 2: 1 8
+Enter Arrival Time and Burst Time for Process 3: 2 7
+Output for Non preepitive SJF :-
+PID    Arrival Burst   Finish  Turnaround   Waiting
+1      0        6       6       6            0
+3      2        7       13      11           4
+2      1        8       21      20           12
+Input for Preemptive SJF :- 
+Enter the number of processes: 3
+Enter Arrival Time and Burst Time for Process 1: 0 6
+Enter Arrival Time and Burst Time for Process 2: 1 8
+Enter Arrival Time and Burst Time for Process 3: 2 7
+Output for Preemptive SJF :-
+PID    Arrival Burst   Finish  Turnaround   Waiting
+1      0        6       21      21           15
+3      2        7       14      12           5
+2      1        8       22      21           13
+
