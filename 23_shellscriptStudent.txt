@@ -106,3 +106,33 @@ while true; do
             ;;
     esac
 done
+
+INPUT :
+
+Student Database Operations:
+1. Insert Student
+2. Delete Student
+3. Update Student
+4. Search Student
+5. Exit
+Enter your choice:
+1
+Enter Student ID:
+101
+Enter Student Name:
+John Doe
+Enter Student Age:
+20
+Student added successfully.
+
+Student Database Operations:
+1. Insert Student
+2. Delete Student
+3. Update Student
+4. Search Student
+5. Exit
+Enter your choice:
+4
+Enter Student ID to search:
+101
+Student Found: 101,John Doe,20
