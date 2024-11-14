@@ -48,3 +48,9 @@ int main() {
 
     return 0;
 }
+
+INPUT :
+
+LOAD R1, 100
+ADD R1, R2
+STORE R1, 200
