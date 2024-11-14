@@ -49,3 +49,9 @@ int main() {
 
     return 0;
 }
+
+INPUT :
+
+Number of pages in the reference string: 9
+Reference string: 7 0 1 2 0 3 0 4 2
+Number of frames: 3
