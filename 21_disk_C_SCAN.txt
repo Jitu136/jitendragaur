@@ -122,3 +122,11 @@ int main() {
 
     return 0;
 }
+
+INPUT :
+
+Enter the number of disk requests: 8
+Enter the disk requests (space separated): 98 183 41 122 14 124 65 67
+Enter the starting position of the disk head: 53
+Enter the disk size (number of tracks): 200
+Enter the initial direction of the disk head (0 for left, 1 for right): 1
