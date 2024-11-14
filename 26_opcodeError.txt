@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 // Define the maximum number of valid opcodes
 #define MAX_OPCODES 5
@@ -13,16 +14,27 @@ void raise_interrupt(const char *error_message) {
 }
 
 // Function to check if the opcode is valid
-int is_valid_opcode(const char *opcode) {
+int is_valid_opcode(const char *instruction) {
     // List of valid opcodes
-    const char *valid_opcodes[MAX_OPCODES] = {"LOAD", "ADD", "SUB", "STORE", "JMP"};
+    const char *valid_opcodes[MAX_OPCODES] = {"GD", "PD", "LR", "SR", "CR"};
     
+    // Check if the first two characters match a valid opcode
+    int is_opcode_valid = 0;
     for (int i = 0; i < MAX_OPCODES; i++) {
-        if (strcmp(opcode, valid_opcodes[i]) == 0) {
-            return 1; // Valid opcode
+        if (strncmp(instruction, valid_opcodes[i], 2) == 0) {
+            is_opcode_valid = 1;
+            break;
         }
     }
-    return 0; // Invalid opcode
+    if (!is_opcode_valid) {
+        return 0; // Invalid opcode
+    }
+
+    // Check if the third and fourth characters (if present) are digits
+    if (instruction[2] != '\0' && !isdigit(instruction[2])) return 0;
+    if (instruction[3] != '\0' && !isdigit(instruction[3])) return 0;
+
+    return 1; // Valid opcode with optional numeric suffix
 }
 
 // Function to process the job (list of instructions)
@@ -59,12 +71,3 @@ int main() {
     
     return 0;
 }
-
-INPUT :
-
-Enter the number of instructions: 4
-Enter the instructions (one per line):
-LOAD
-ADD
-XYZ
-STORE
