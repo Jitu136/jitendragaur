@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
-// Define maximum number of valid opcodes and operand range
+// Define maximum number of valid opcodes
 #define MAX_OPCODES 5
-#define MAX_OPERAND 100 // Define the range of valid operands (e.g., 0 to 100)
 
 // Function to simulate an interrupt (error)
 void raise_interrupt(const char *error_message) {
@@ -13,25 +13,41 @@ void raise_interrupt(const char *error_message) {
     exit(1); // Terminate the program on error
 }
 
-// Function to check if the opcode is valid
-int is_valid_opcode(const char *opcode) {
+// Function to check if the opcode and format are valid
+int is_valid_opcode(const char *instruction) {
     // List of valid opcodes
-    const char *valid_opcodes[MAX_OPCODES] = {"LOAD", "ADD", "SUB", "STORE", "JMP"};
+    const char *valid_opcodes[MAX_OPCODES] = {"GD", "PD", "LR", "SR", "CR"};
     
+    // Check if the instruction starts with a valid opcode (first two characters)
+    int opcode_found = 0;
     for (int i = 0; i < MAX_OPCODES; i++) {
-        if (strcmp(opcode, valid_opcodes[i]) == 0) {
-            return 1; // Valid opcode
+        if (strncmp(instruction, valid_opcodes[i], 2) == 0) {
+            opcode_found = 1;
+            break;
         }
     }
-    return 0; // Invalid opcode
+    
+    // If opcode is not found, return invalid
+    if (!opcode_found) {
+        return 0;
+    }
+
+    // If the instruction is exactly two characters, it's valid (no operand required)
+    if (strlen(instruction) == 2) {
+        return 1;
+    }
+
+    // Check if the 3rd and 4th positions contain digits (only if the instruction is longer than 2 characters)
+    if (strlen(instruction) == 4 && isdigit(instruction[2]) && isdigit(instruction[3])) {
+        return 1; // Valid format with two digits after the opcode
+    }
+
+    return 0; // Invalid format
 }
 
 // Function to check if the operand is valid
 int is_valid_operand(int operand) {
-    if (operand < 0 || operand > MAX_OPERAND) {
-        return 0; // Invalid operand
-    }
-    return 1; // Valid operand
+    return 1; // Always return valid (no range check here)
 }
 
 // Function to process the job (list of instructions and operands)
@@ -39,12 +55,12 @@ void process_job(const char instructions[][10], int operands[], int num_instruct
     for (int i = 0; i < num_instructions; i++) {
         printf("Processing instruction: %s %d\n", instructions[i], operands[i]);
         
-        // Check if the opcode is valid
+        // Check if the opcode and format are valid
         if (!is_valid_opcode(instructions[i])) {
-            raise_interrupt("Invalid opcode encountered!");
+            raise_interrupt("Invalid opcode or instruction format encountered!");
         }
         
-        // Check if the operand is valid
+        // Check if the operand is valid (no range check here)
         if (!is_valid_operand(operands[i])) {
             raise_interrupt("Invalid operand encountered!");
         }
@@ -64,7 +80,7 @@ int main() {
     int operands[num_instructions];
     
     // Take input instructions and operands from the user
-    printf("Enter the instructions and operands (e.g., LOAD 25):\n");
+    printf("Enter the instructions and operands (e.g., GD23 50):\n");
     for (int i = 0; i < num_instructions; i++) {
         scanf("%s %d", instructions[i], &operands[i]);
     }
@@ -74,11 +90,3 @@ int main() {
     
     return 0;
 }
-
-INPUT :
-
-Enter the number of instructions: 3
-Enter the instructions and operands (e.g., LOAD 25):
-LOAD 25
-ADD 50
-STORE 150
